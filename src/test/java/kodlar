@@ -1,0 +1,168 @@
+
+    private ArrayList<TreeItem> getKursiyer(){
+        ArrayList<TreeItem> kursiyer = new ArrayList<>();
+        
+        TreeItem yeniKayit = new TreeItem("Yeni Kayıt");
+        TreeItem kayitGetir = new TreeItem("Kayıt Getir");
+        
+        kursiyer.add(yeniKayit);      
+        kursiyer.add(kayitGetir);
+        
+        return kursiyer;
+    }
+    
+    private ArrayList<TreeItem> getMebBelgeleri(){
+        ArrayList<TreeItem> meb = new ArrayList<>();
+        
+        TreeItem sertifika = new TreeItem("Ek-6 Kursiyer Sertifika");
+        TreeItem sertifikaSonuclari = new TreeItem("Sertifika Sonuçları");
+        
+        return meb;
+    }
+
+        trv_left.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
+            @Override
+            public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+                TreeItem<String> selectedItem = (TreeItem<String>) newValue;
+                System.out.println("Seçilen Alan => "+selectedItem.getValue());
+            }
+        });
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public void showTreeView() {
+        TreeItem surucufx = new TreeItem("SürücüFX");
+        surucufx.getChildren().addAll(new TreeViewHazirlayici().liste());
+        surucufx.setExpanded(true);
+        trv_left.setRoot(surucufx);
+    }
+        
+    public void secimiYakala(MouseEvent event) throws IOException {
+        TreeItem<String> selectedItem = trv_left.getSelectionModel().getSelectedItem();
+        secimiGoster(selectedItem);
+    }
+    
+    public void secimiGoster(TreeItem<String> selectedItem) throws IOException{
+        FXMLLoader loader = new FXMLLoader();        
+        Tab tab = new Tab();
+        AnchorPane pane;
+        boolean secilen = true;
+        
+        switch(selectedItem.getValue()){
+            case "Yeni Kayıt":
+                loader.setLocation(getClass().getResource("/fxml/YeniKayit.fxml"));
+                break;
+            case "Kursiyer Kayıtları":
+                MainApp.gosterKursiyerKayitlari();
+                secilen = false;
+                break;
+            case "Ek-6 Sertifika":
+                loader.setLocation(getClass().getResource("/fxml/Ek_6_Sertifika.fxml"));
+                break;
+            default:
+                secilen = false;
+                break;
+        }
+      
+        if(secilen){   
+            pane = loader.load();
+            tab.setText(selectedItem.getValue());
+            tab.setContent(pane);
+            tbp_center.getTabs().add(tab);
+            tbp_center.getSelectionModel().select(tab);
+        }
+    }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tab ın kapatma isteğine olay yazıyoruz yeni bir uyarı penceresi ile değişiklik yapıldıysa kaydedip etmeyeceğini soruyoruz.
+
+            tab.setOnCloseRequest(new EventHandler<Event>() {
+                @Override
+                public void handle(Event event) {
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("Yeni Kayıt Uyarı");
+                    alert.setHeaderText("Değişiklikleri Kaydetmek İstermisiniz");
+                    alert.setContentText("A Kişisinin bilgileri kayıt edilecek");
+
+                    ButtonType evet = new ButtonType("Evet");
+                    ButtonType hayir = new ButtonType("Hayır");
+                    ButtonType vazgec = new ButtonType("Vazgeç",ButtonBar.ButtonData.CANCEL_CLOSE);
+                    alert.getButtonTypes().setAll(evet,hayir,vazgec);
+                    Optional<ButtonType> result = alert.showAndWait();
+                    if(result.get() == evet){
+                       
+                    }else if(result.get() == hayir){
+                        
+                    }else{
+                        
+                    }
+                }
+            });
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    Datepicker çıktısını formatlama
+
+    void converter(DatePicker dtp) {
+        dtp.setConverter(new StringConverter<LocalDate>() {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+            @Override
+            public String toString(LocalDate date) {
+                if (date != null) {
+                    return formatter.format(date);
+                } else {
+                    return "";
+                }
+            }
+
+            @Override
+            public LocalDate fromString(String string) {
+                if (string != null && !string.isEmpty()) {
+                    return LocalDate.parse(string, formatter);
+                } else {
+                    return null;
+                }
+            }
+        });
+    }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    BUTONA RESİM EKLEME YÖNTEMLERİNDEN BİRİ
+
+
+        FileInputStream input = new FileInputStream("resources/images/iconmonstr-home-6-48.png");
+        Image image = new Image(input);
+        ImageView imageView = new ImageView(image);
+
+        Button button = new Button("Home", imageView);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    ***********  gridfs kullanarak mongodb ye resim dosyası vb ekleme... ***************
+
+            try {
+                MongoClient client = new MongoClient("localhost",27017);
+                DB db = new DB(client, "surucufx");
+                
+                DBCollection coll = db.getCollection("evrak_ogrenim");
+                
+                String fileName = ogrenimBelge.getName();
+                    System.out.println("Belge ismi => " + fileName);
+                
+                GridFS ogrenim = new GridFS(db, "ogrenimbelgesi");
+                GridFSInputFile ogrenimBelgesi = ogrenim.createFile(ogrenimBelge);
+                ogrenimBelgesi.setFilename(fileName);
+                ogrenimBelgesi.save();
+                    
+            } catch (IOException e) {
+                System.err.println("Mongo Hata = >  " + e);
+            }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

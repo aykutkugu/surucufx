@@ -1,0 +1,39 @@
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-opacity: 0;
+}
+
+.tab-pane
+{
+    -fx-tab-min-width:100px;/*tab Genişliği*/
+/*    -fx-tab-min-height:30px; tab yüksekliği*/
+}
+
+.tab{
+    -fx-background-insets: 0 1 0 1,0,0;
+}
+.tab-pane .tab
+{
+    -fx-background-color: #e6e6e6;/*tab seçili değilken arka planı*/
+
+}
+
+.tab-pane .tab:selected
+{
+    -fx-background-color:  #595959;/*tab seçiliyken arka planı*/
+}
+
+.tab .tab-label { 
+    -fx-alignment: CENTER; /*tab başlığı hizalama*/
+    -fx-text-fill:  #bf80ff;/*tab başlığı yazı rengi*/
+    -fx-font-size: 16px;/*tab başlığı yazı boyutu*/
+/*    -fx-font-weight: bold;*//*tab başlığı yazı kalınlığı*/
+}
+
+.tab:selected .tab-label { 
+    -fx-alignment: CENTER; /*tab başlığı seçildiğinde hizalaması*/
+    -fx-text-fill: #bf80ff;/*tab başlığı seçildiğinde yazı rengi dolgusu*/
+}
+
+.tab-pane .tab:hover { 
+/*    -fx-background-color: #ccffcc;tab başlığı yazı rengi*/
+}

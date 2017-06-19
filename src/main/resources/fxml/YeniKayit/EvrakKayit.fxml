@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="820.0" maxWidth="1920.0" prefHeight="820.0" prefWidth="1920.0" style="-fx-background-color: #808080;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ikut.surucufx.EvrakKayitController">
+   <children>
+      <Pane layoutX="597.0" layoutY="498.0" prefHeight="300.0" prefWidth="582.0" style="-fx-border-color: #595959; -fx-background-color: #595959; -fx-border-width: 2;">
+         <children>
+            <Label layoutX="65.0" layoutY="-12.0" style="-fx-background-color: #595959;" text="     SAĞLIK RAPORU     " textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <effect>
+                  <Glow />
+               </effect>
+            </Label>
+            <GridPane hgap="5.0" layoutX="24.0" layoutY="28.0" prefHeight="199.0" prefWidth="470.0" vgap="5.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="229.0" minWidth="10.0" prefWidth="163.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="309.0" minWidth="10.0" prefWidth="307.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label text="VEREN KURUM" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label text="TARİHİ" textFill="WHITE" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label text="ÖZÜR DURUMU" textFill="WHITE" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label text="SAYISI" textFill="WHITE" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txt_saglikVerenKurum" GridPane.columnIndex="1" />
+                  <TextField fx:id="txt_saglikSayisi" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <ChoiceBox fx:id="cho_ozurDurumu" prefHeight="26.0" prefWidth="314.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <DatePicker fx:id="dtp_saglikTarihi" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button fx:id="btnSaglikGetir" mnemonicParsing="false" onAction="#saglikRaporuGetir" style="-fx-background-color: #008080;" text="SAĞLIK RAPORU SEÇ" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Label text="RAPORU SEÇ" textFill="WHITE" GridPane.rowIndex="4">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+            <CheckBox fx:id="chk_tercuman" layoutX="17.0" layoutY="242.0" mnemonicParsing="false" text="Sınav Esnasında okutman ve/veya yazman (Tercüman) ihtiyacım bulunmaktadır." textFill="#fcf6f6" />
+            <CheckBox fx:id="chk_isaretDili" layoutX="17.0" layoutY="270.0" mnemonicParsing="false" text="Sınav esnasında işaret dilini bilen tercümana ihtiyacım bulunmaktadır." textFill="#fcf6f6" />
+         </children>
+      </Pane>
+      <Pane layoutX="596.0" layoutY="29.0" prefHeight="236.0" prefWidth="582.0" style="-fx-border-color: #595959; -fx-background-color: #595959; -fx-border-width: 2;">
+         <children>
+            <Label layoutX="65.0" layoutY="-12.0" style="-fx-background-color: #595959;" text="     ÖĞRENİM BELGESİ     " textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <effect>
+                  <Glow />
+               </effect>
+            </Label>
+            <GridPane hgap="5.0" layoutX="24.0" layoutY="28.0" prefHeight="199.0" prefWidth="470.0" vgap="5.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="229.0" minWidth="10.0" prefWidth="163.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="309.0" minWidth="10.0" prefWidth="307.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label text="VEREN KURUM" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label text="TARİHİ" textFill="WHITE" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label text="BELGE TÜRÜ" textFill="WHITE" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label text="SAYISI" textFill="WHITE" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txt_ogrBelgesiVerenKurum" GridPane.columnIndex="1" />
+                  <TextField fx:id="txt_ogrBelgeSayisi" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <ChoiceBox fx:id="cho_ogrBelgeTuru" prefHeight="26.0" prefWidth="314.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <DatePicker fx:id="dtp_ogrBelgeTarihi" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button fx:id="btnOgrBelgesiGetir" mnemonicParsing="false" onAction="#ogrenimBelgesiGetir" style="-fx-background-color: #008080;" text="ÖĞRENİM BELGESİ SEÇ" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Label text="BELGEYİ SEÇ" textFill="WHITE" GridPane.rowIndex="4">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+         </children>
+      </Pane>
+      <Pane layoutX="597.0" layoutY="287.0" prefHeight="187.0" prefWidth="582.0" style="-fx-border-color: #595959; -fx-background-color: #595959; -fx-border-width: 2;">
+         <children>
+            <Label layoutX="65.0" layoutY="-12.0" style="-fx-background-color: #595959;" text="     SABIKA KAYDI     " textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <effect>
+                  <Glow />
+               </effect>
+            </Label>
+            <GridPane hgap="5.0" layoutX="33.0" layoutY="24.0" prefHeight="150.0" prefWidth="470.0" vgap="5.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="229.0" minWidth="10.0" prefWidth="163.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="309.0" minWidth="10.0" prefWidth="307.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label text="VEREN KURUM" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label text="TARİHİ" textFill="WHITE" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label text="SAYISI" textFill="WHITE" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txt_sabikaKayVerKur" GridPane.columnIndex="1" />
+                  <TextField fx:id="txt_sabikaKaydiSayisi" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <DatePicker fx:id="dtp_sabikaTarihi" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button fx:id="btnSabikaGetir" mnemonicParsing="false" onAction="#sabikaKaydiGetir" style="-fx-background-color: #008080;" text="SABIKA KAYDI SEÇ" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Label text="BELGEYİ SEÇ" textFill="WHITE" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+         </children>
+      </Pane>
+      <Pagination layoutX="1205.0" layoutY="28.0" maxPageIndicatorCount="6" pageCount="6" prefHeight="770.0" prefWidth="690.0" style="-fx-background-color: #595959;">
+         <effect>
+            <Glow />
+         </effect></Pagination>
+      <Pane layoutX="32.0" layoutY="29.0" prefHeight="236.0" prefWidth="538.0" style="-fx-border-color: #595959; -fx-background-color: #595959; -fx-border-width: 2;">
+         <children>
+            <Label layoutX="65.0" layoutY="-12.0" style="-fx-background-color: #595959;" text="    ADAY BİLGİLERİ     " textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <effect>
+                  <Glow />
+               </effect>
+            </Label>
+            <GridPane hgap="5.0" layoutX="24.0" layoutY="24.0" prefHeight="199.0" prefWidth="470.0" vgap="5.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="229.0" minWidth="10.0" prefWidth="163.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="309.0" minWidth="10.0" prefWidth="307.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label text="ADI SOYADI" textFill="WHITE" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label text="TC KİMLİK NO" textFill="WHITE" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label text="CEP TELEFONU" textFill="WHITE" GridPane.rowIndex="4">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label text="SERTİFİKA SINIFI" textFill="WHITE" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="60.0" text="ADAY NO" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblCepTelefonu" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblAdayNo" layoutX="175.0" layoutY="182.0" textFill="WHITE" GridPane.columnIndex="1">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblAdiSoyadi" layoutX="175.0" layoutY="182.0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblTcKimlik" layoutX="175.0" layoutY="182.0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblSertifikaSinifi" layoutX="175.0" layoutY="101.0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+         </children>
+      </Pane>
+      <Pane layoutX="32.0" layoutY="639.0" prefHeight="159.0" prefWidth="538.0" style="-fx-border-color: #595959; -fx-background-color: #595959; -fx-border-width: 2;">
+         <children>
+            <Label layoutX="65.0" layoutY="-12.0" style="-fx-background-color: #595959;" text="    ADAY İMZA     " textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <effect>
+                  <Glow />
+               </effect>
+            </Label>
+            <ImageView fx:id="imv_imza" fitHeight="150.0" fitWidth="200.0" layoutX="33.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/atatürkimza.jpg" />
+               </image>
+            </ImageView>
+            <Button fx:id="btnAdayImzaGetir" layoutX="346.0" layoutY="99.0" mnemonicParsing="false" onAction="#adayImzaGetir" style="-fx-background-color: #008080;" text="ADAY İMZA GETİR" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Button fx:id="btnSozlesmeBir" layoutX="72.0" layoutY="287.0" mnemonicParsing="false" onAction="#sozlesme1Getir" style="-fx-background-color: #008080;" text="SÖZLEŞME 1.SAYFA SEÇ" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnSozlesmeIki" layoutX="328.0" layoutY="287.0" mnemonicParsing="false" onAction="#sozlesme2Getir" style="-fx-background-color: #008080;" text="SÖZLEŞME 2.SAYFA SEÇ" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

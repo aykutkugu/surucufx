@@ -1,0 +1,58 @@
+package com.ikut.surucufx;
+
+import java.util.ArrayList;
+import javafx.scene.control.TreeItem;
+
+/**
+ *
+ * @author aykut
+ */
+public class TreeViewHazirlayici {
+   
+    ArrayList<TreeItem> liste(){
+        ArrayList<TreeItem> root = new ArrayList<>();
+        
+        TreeItem kursiyer = new TreeItem("Kursiyer");
+            kursiyer.getChildren().addAll(getKursiyer());
+        TreeItem mebBelgeleri = new TreeItem("Meb Belgeleri");
+            mebBelgeleri.getChildren().addAll(getMebBelgeleri());
+        TreeItem kursBelgeleri = new TreeItem("Kurs Belgeleri");
+            kursBelgeleri.getChildren().addAll(getKursBelgeleri());
+        
+        root.add(kursiyer);
+        root.add(mebBelgeleri);
+        root.add(kursBelgeleri);
+        return root;
+    }
+    
+    private ArrayList<TreeItem> getKursiyer(){
+        ArrayList<TreeItem> kursiyer = new ArrayList();
+            TreeItem yeniKayit = new TreeItem("Yeni Kayıt");
+            TreeItem kursiyerKayitlari = new TreeItem("Kursiyer Kayıtları");
+        
+        kursiyer.add(yeniKayit);
+        kursiyer.add(kursiyerKayitlari);
+        return kursiyer;       
+    }
+    
+    private ArrayList<TreeItem> getMebBelgeleri(){
+        ArrayList<TreeItem> mebBelgeleri = new ArrayList<>();
+            TreeItem ek6 = new TreeItem("Ek-6 Sertifika");
+            TreeItem sertSonuclari = new TreeItem("Sertifika Sonuçları");
+            
+        mebBelgeleri.add(ek6);
+        mebBelgeleri.add(sertSonuclari);
+        return mebBelgeleri;
+    }
+    
+    private ArrayList<TreeItem> getKursBelgeleri(){
+        ArrayList<TreeItem> kursBelgeleri = new ArrayList<>();
+            TreeItem ek4 = new TreeItem("Ek-4");
+            TreeItem ek3 = new TreeItem("Ek-3");
+            
+        kursBelgeleri.add(ek3);
+        kursBelgeleri.add(ek4);
+        return kursBelgeleri;
+    }
+
+}
